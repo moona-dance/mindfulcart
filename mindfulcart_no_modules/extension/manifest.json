@@ -3,6 +3,12 @@
   "name": "MindfulCart",
   "version": "1.0.0",
   "description": "Pause before you purchase. MindfulCart gives you a gentle moment of reflection before checkout.",
+  "icons": {
+        "16": "image/mindfulcart_icon.png",
+        "32": "image/mindfulcart_icon.png",
+        "48": "image/mindfulcart_icon.png",
+        "128": "image/mindfulcart_icon.png"
+    },
   "permissions": ["scripting", "activeTab", "storage", "tabs"],
   "host_permissions": ["<all_urls>"],
   "background": {
@@ -10,7 +16,8 @@
   },
   "action": {
     "default_popup": "popup.html",
-    "default_title": "MindfulCart"
+    "default_title": "MindfulCart",
+    "default_icon": "image/mindfulcart_icon.png"
   },
   "content_scripts": [
     {
