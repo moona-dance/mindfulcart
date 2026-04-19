@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MindfulCart</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { width: 340px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: linear-gradient(135deg, #f0edff, #faf9ff); color: #1e1a3a; font-size: 14px; }
+    .header { padding: 16px 18px 12px; background: rgba(255,255,255,0.9); border-bottom: 1px solid rgba(124,92,252,0.12); display: flex; align-items: center; gap: 10px; }
+    .logo { width: 34px; height: 34px; border-radius: 10px; background: #7c5cfc; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+    .title { font-weight: 800; font-size: 16px; }
+    .tagline { font-size: 11px; color: #6b6589; }
+    .section { background: rgba(255,255,255,0.9); border: 1px solid rgba(255,255,255,0.7); border-radius: 16px; padding: 16px; margin: 12px 12px 0; box-shadow: 0 4px 16px rgba(124,92,252,0.07); }
+    .section-title { font-weight: 800; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: #6b6589; margin-bottom: 10px; }
+    .goal-text { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .stat-row { display: flex; gap: 8px; margin-bottom: 8px; }
+    .stat { flex: 1; background: #f0edff; border-radius: 10px; padding: 8px 10px; }
+    .stat-label { font-size: 10px; color: #6b6589; font-weight: 600; }
+    .stat-value { font-size: 15px; font-weight: 800; color: #7c5cfc; }
+    .progress-bar { height: 6px; border-radius: 99px; background: #ede8ff; overflow: hidden; margin: 4px 0 2px; }
+    .progress-fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, #7c5cfc, #a78bfa); transition: width 0.5s; }
+    .pct { font-size: 11px; color: #7c5cfc; font-weight: 700; }
+    .dl dt { font-size: 11px; color: #6b6589; font-weight: 600; margin-top: 6px; }
+    .dl dd { font-size: 13px; font-weight: 700; }
+    .btn { width: 100%; padding: 12px; border-radius: 12px; border: none; cursor: pointer; font-family: inherit; font-weight: 700; font-size: 14px; transition: all 0.18s; }
+    .btn-primary { background: #7c5cfc; color: #fff; }
+    .btn-primary:hover { background: #5b3fd4; }
+    .btn-ghost { background: transparent; color: #7c5cfc; border: 2px solid rgba(124,92,252,0.2); }
+    .btn-ghost:hover { background: #ede8ff; }
+    .btn-sm { padding: 8px 12px; font-size: 12px; }
+    .footer { padding: 12px; }
+    .muted { font-size: 11px; color: #9ca3af; text-align: center; margin-top: 6px; }
+    .form-group { margin-bottom: 10px; }
+    .form-group label { font-size: 11px; font-weight: 700; color: #6b6589; display: block; margin-bottom: 4px; }
+    .form-group input { width: 100%; padding: 8px 10px; border-radius: 8px; border: 1.5px solid rgba(124,92,252,0.18); font-family: inherit; font-size: 13px; }
+    .form-group input:focus { outline: none; border-color: #7c5cfc; }
+    .confirm { background: #d1fae5; color: #065f46; border-radius: 8px; padding: 8px 12px; font-size: 12px; font-weight: 700; text-align: center; margin-top: 8px; }
+    .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">🛒</div>
+    <div>
+      <div class="title">MindfulCart</div>
+      <div class="tagline">Pause before you pay.</div>
+    </div>
+  </div>
+
+  <!-- Goal -->
+  <div class="section">
+    <div class="section-title">Your financial goal</div>
+    <div class="goal-text" id="goal-desc">Loading...</div>
+    <div class="stat-row">
+      <div class="stat"><div class="stat-label">Saved</div><div class="stat-value" id="goal-saved">—</div></div>
+      <div class="stat"><div class="stat-label">Target</div><div class="stat-value" id="goal-target">—</div></div>
+      <div class="stat"><div class="stat-label">Income/mo</div><div class="stat-value" id="goal-income">—</div></div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="goal-bar" style="width:0%"></div></div>
+    <div class="pct" id="goal-pct">0% saved</div>
+
+    <button class="btn btn-ghost btn-sm" id="btn-edit-goal" style="margin-top:10px;">✏️ Edit goal & income</button>
+
+    <div id="goal-form" style="margin-top:12px;">
+      <div class="form-group"><label>Goal description</label><input id="f-desc" type="text" placeholder="e.g. Emergency fund" /></div>
+      <div class="row2">
+        <div class="form-group"><label>Target ($)</label><input id="f-target" type="number" placeholder="5000" /></div>
+        <div class="form-group"><label>Saved ($)</label><input id="f-saved" type="number" placeholder="1200" /></div>
+      </div>
+      <div class="form-group"><label>Monthly income ($)</label><input id="f-income" type="number" placeholder="4000" /></div>
+      <button class="btn btn-primary btn-sm" id="btn-save-goal">Save</button>
+      <div id="save-confirm" class="confirm">✅ Saved! Website will update automatically.</div>
+    </div>
+  </div>
+
+  <!-- Page context -->
+  <div class="section">
+    <div class="section-title">This page</div>
+    <dl class="dl">
+      <dt>Product / page</dt><dd id="page-name">—</dd><dd id="page-note" style="font-size:10px;color:#7c5cfc;margin-top:2px;"></dd>
+      <dt>Detected price</dt><dd id="page-price">—</dd>
+      <dt>Sale keywords</dt><dd id="page-keywords">—</dd>
+    </dl>
+  </div>
+
+  <!-- Open button -->
+  <div class="footer">
+    <button class="btn btn-primary" id="btn-open">Open MindfulCart →</button>
+    <p class="muted">Your goal data syncs to the website automatically.</p>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
