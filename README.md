@@ -55,7 +55,12 @@ React + Vite on the frontend, Express on the backend, Chrome Manifest V3 for the
 Aigerim — backend   
 Altynai — extension + backend suppport 
 Bidoog — frontend 
+
+---
+
+## little note
 we had a little too much mess with our code so we uploaded just the final project - all the work was done on another private repo. 
+
 ---
 
 ## Gratitude
