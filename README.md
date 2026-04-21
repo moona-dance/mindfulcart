@@ -1,6 +1,6 @@
 # MindfulCart 🐷
 
-We built this at AugieHack 2026 by Aigerim, Altynai & Bidoog. 
+We built this at AugieHack 2026 by Aigerim, Altynai & Bidoog for a FinTech category and won thanks to this project!
 The idea is simple — when you're about to buy something online, you get a moment to think about it first. Not a lecture, not a blocker. Just 30 seconds.
 
 The Chrome extension detects when you're checking out, reads the item name and price from the page, and opens our website with that data. You answer a few questions about your mood and whether you actually need it, see how many hours of work the purchase costs, and then make your own call. Whatever you decide is fine. We just want you to decide on purpose.
@@ -55,3 +55,9 @@ React + Vite on the frontend, Express on the backend, Chrome Manifest V3 for the
 Aigerim — backend   
 Altynai — extension + backend suppport 
 Bidoog — frontend 
+
+---
+
+## Gratitude
+
+We are forever grateful to the Hackaugie team for a smooth organization, opportunity to participate in the Hackathon in our cornfield, meet new people and try new things! <3
