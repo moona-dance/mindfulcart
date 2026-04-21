@@ -56,8 +56,10 @@ Aigerim — backend
 Altynai — extension + backend suppport 
 Bidoog — frontend 
 
+we had a little top much mess with our code so we uploaded just the final project - all the work was done on another private repo. 
 ---
 
 ## Gratitude
 
 We are forever grateful to the Hackaugie team for a smooth organization, opportunity to participate in the Hackathon in our cornfield, meet new people and try new things! <3
+
